@@ -2,7 +2,17 @@
 
 Never expose your personal email again
 
-[TOC]
+- [Keemail Server](#keemail-server)
+  * [About / Synopsis](#about---synopsis)
+  * [Installation](#installation)
+    + [Docker](#docker)
+    + [Basic Install](#basic-install)
+      - [Env](#env)
+      - [Requirements](#requirements)
+      - [Migration](#migration)
+  * [Run](#run)
+
+
 
 ## About / Synopsis
 
