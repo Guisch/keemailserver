@@ -1,0 +1,33 @@
+<!-- app/templates/api/api_doc.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}API Doc{% endblock %}
+{% block body %}
+<div class="content-section">
+    <br/>
+    {{ utils.flashed_messages() }}
+    <br/>
+    <div class="center">
+        <h1>Generate Alias</h1>
+        <ul>
+            <li>Method: GET</li>
+            <li>Endpoint: /api/generate_alias</li>
+            <li>
+                Params:
+                <ul>
+                    <li>token: required, API Keys (generated from API Keys page)</li>
+                    <li>name: optional, Name of the generated alias</li>
+                </ul>
+            </li>
+            <li>
+                Return:
+                <ul>
+                    <li>401 Unauthorized: {"error": "message"}</li>
+                    <li>200 Success: {"success": "message", "alias", "aaaaaaaa@example.com"}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

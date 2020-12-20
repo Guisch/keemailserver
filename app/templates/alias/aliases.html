@@ -1,0 +1,64 @@
+<!-- app/templates/admin/departments/departments.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Aliases{% endblock %}
+{% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <br/>
+                {{ utils.flashed_messages() }}
+                <br/>
+                <h1 style="text-align:center;">Aliases</h1>
+                {% if aliases %}
+                    <hr class="intro-divider">
+                    <div class="center">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> Name </th>
+                                    <th> Source </th>
+                                    <th> Destination </th>
+                                    <th> Created at </th>
+                                    <th> Last Used </th>
+                                    <th> Email Count </th>
+                                    <th> Delete </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for alias in aliases %}
+                                    <tr>
+                                        <td> {{ alias.name }} </td>
+                                        <td> {{ alias.source }} </td>
+                                        <td> {{ alias.destination }} </td>
+                                        <td> {{ alias.created_at }} </td>
+                                        <td> {{ alias.last_used }} </td>
+                                        <td> {{ alias.used_count }} </td>
+                                        <td>
+                                            <a href="{{ url_for('alias.aliases_del', id=alias.id) }}">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div style="text-align: center">
+                        <h3> No Aliases have been generated. </h3>
+                        <hr class="intro-divider">
+                    </div>
+                {% endif %}
+                <div style="text-align: center">
+                    <a href="{{ url_for('alias.aliases_add') }}" class="btn btn-default btn-lg">
+                        <i class="fa fa-plus"></i> Generate Alias
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
